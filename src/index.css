@@ -43,24 +43,74 @@ body {
 
 /* Header styles */
 header {
-  background-color: var(--bg-white);
-  box-shadow: var(--shadow-sm);
-  padding: 1rem 0;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 2rem;
 }
 
 header .container {
-  display: flex;
+   display: flex;
   justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+/* Header base styles */
+.app-header {
+ background-color: var(--bg-white);
+  box-shadow: none;         /* Removed shadow */
+  border-bottom: none;      /* Ensure no bottom border */
+  padding: 1rem 0;
+}
+
+
+
+/* This centers the logo absolutely */
+.app-logo {
+  position: absolute;
+  left: 7%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+@media (max-width: 600px) {
+  .app-logo {
+    left: 15%;
+  }
+}
+
+.logo-img {
+  height: 50px; /* adjust size as needed */
+  width: 200px;
+}
+
+/* Equal width divs on both sides to balance layout */
+.header-side-placeholder,
+.app-nav {
+  width: 180px; /* Adjust based on button size */
+}
+
+/* Adjust nav content */
+.app-nav {
+  display: flex;
+  justify-content: flex-end;
   align-items: center;
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: rem;
   font-weight: bold;
   color: var(--primary-color);
   text-decoration: none;
 }
-
+.logo-img {
+  height: 80px; /* Adjust the height as needed */
+  width: auto;
+  object-fit: contain;
+  display: block;
+  align-items: center;
+}
+.login-nav-btn {
+  margin-right: 1rem; /* Adjust the value as needed */
+}
 /* Footer styles */
 footer {
   background-color: var(--bg-white);
@@ -74,6 +124,7 @@ footer {
 
 /* Main Content */
 main {
+    background-color: var(--bg-white);  /* Match header background */
   padding: 2rem 0;
   min-height: calc(100vh - 140px);
 }
@@ -189,6 +240,7 @@ main {
   font-weight: 600;
   color: var(--text-primary);
 }
+
 
 .card-badge {
   background-color: var(--secondary-color);
@@ -330,4 +382,285 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: 0.75rem;
   color: var(--text-light);
   margin-bottom: 0.25rem;
+}
+
+/* Auth and login related styles */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.login-form-wrapper {
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-title {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #333;
+}
+
+.login-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.login-form .form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.login-btn {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  border: 1px solid #f5c6cb;
+}
+
+.welcome-message {
+  margin-right: 1rem;
+  font-weight: 500;
+}
+
+/* Disabled button styles */
+.btn.disabled, 
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Header styles */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.app-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.app-nav {
+  display: flex;
+  align-items: center;
+}
+
+.user-controls {
+  display: flex;
+  align-items: center;
+}
+
+.login-nav-btn {
+  padding: 0.5rem 1rem;
+}
+/* Layout container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  min-height: 10vh;
+  padding: 1rem;
+  background-color: #ffffff;
+}
+
+/* Form wrapper */
+.login-form-wrapper {
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.login-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+/* Form fields */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.65rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Button */
+.login-btn {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-btn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Error message */
+.error-message {
+  background-color: #f8d7da;
+  color: #842029;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .login-form-wrapper {
+    padding: 1.25rem;
+  }
+
+  .login-title {
+    font-size: 1.5rem;
+  }
+
+  .form-group input {
+    font-size: 0.95rem;
+    padding: 0.55rem;
+  }
+
+  .login-btn {
+    font-size: 0.95rem;
+    padding: 0.65rem;
+  }
+}
+/* Modal Overlay */
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* dim background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Modal Box (Popup) */
+.dialog-box {
+  background: #fff;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 0.3s ease-out;
+  text-align: center;
+}
+
+/* Button Layout */
+.dialog-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Animation (Optional) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.blurred {
+  filter: brightness(0.95) blur(1px);
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.inline-dialog {
+  position: absolute;
+  top: 115px; /* adjust if needed */
+  left: 54%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  width: 250px;
+  text-align: center;
+   font-size: 1rem;
+   font-weight: 600;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+}
+
+.inline-dialog::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: #f8d7da transparent transparent;
+   font-size: 1rem;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
 }

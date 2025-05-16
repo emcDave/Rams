@@ -2,8 +2,7 @@
 import axios from "axios";
 import { Medicine, MedicineFormData, ApiResponse } from "../types";
 
-const API_BASE_URL = "https://backend-zxbt.onrender.com";
-
+export const API_BASE_URL = "http://localhost:8080";
 // Create axios instance
 const apiClient = axios.create({
   baseURL: API_BASE_URL,

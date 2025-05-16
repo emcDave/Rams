@@ -1,32 +1,66 @@
-import { Outlet, Link } from 'react-router-dom';
-import logo from '../assets/rams-logo-refined.png';
+import { Outlet, Link, useNavigate ,useLocation } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+
 export const Layout = () => {
-    return (
-      <div>
-        <header>
-          <div className="container">
-         {/* home link with the logo */}
-         <Link to="/" className="logo" aria-label="Home">
-            <img
-              src={logo}          // or "/rams-logo.png" if it’s in /public
-              alt="RAMS logo"
-              width={120}         // tweak size as you like
-              height={80}
-            />
-          </Link>
-            
-          </div>
-        </header>
-        
-        <main>
-          <Outlet />
-        </main>
-        
-        <footer>
-          <div className="container">
-            © {new Date().getFullYear()} MediTrack - Your Medication Tracker
-          </div>
-        </footer>
-      </div>
-    );
+  const { isAuthenticated, isAdmin, logout } = useAuth();
+  const navigate = useNavigate();
+ const location = useLocation();
+  const handleLogout = async () => {
+    await logout();
+    navigate("/medicines"); // Redirect to login page
   };
+
+  const isLoginPage = location.pathname === '/login';
+
+  return (
+    <div className="app-container">
+      <header className="app-header">
+  <div className="container header-container">
+    {/* Empty placeholder to balance nav width */}
+    <div className="header-side-placeholder" />
+
+    <Link to="/" className="app-logo">
+      <img
+        src="/src/assets/rams-logo.png"
+        alt="Medicine Keeper"
+        className="logo-img"
+      />
+    </Link>
+
+    <nav className="app-nav">
+      {isAuthenticated ? (
+        <div className="user-controls flex items-center gap-4">
+          <span className="welcome-message">
+            Welcome,  {isAdmin && 'Admin'}
+          </span>
+          <button
+            onClick={handleLogout}
+            className="btn btn-secondary logout-btn"
+          >
+            Logout
+          </button>
+        </div>
+      ) : (
+        !isLoginPage && (
+          <Link to="/login" className="btn btn-primary login-nav-btn">
+            Admin Login
+          </Link>
+        )
+      )}
+    </nav>
+  </div>
+</header>
+
+      
+      <main className="app-main">
+        <Outlet />
+      </main>
+      
+      <footer className="app-footer">
+        <div className="container">
+          <p>© {new Date().getFullYear()} RAMS App</p>
+        </div>
+      </footer>
+    </div>
+  );
+};
