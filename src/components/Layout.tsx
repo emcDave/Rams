@@ -21,7 +21,7 @@ export const Layout = () => {
 
     <Link to="/" className="app-logo">
       <img
-        src="/src/assets/rams-logo.png"
+        src="/rams-logo.png"
         alt="Medicine Keeper"
         className="logo-img"
       />
