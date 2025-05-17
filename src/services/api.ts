@@ -2,7 +2,7 @@
 import axios from "axios";
 import { Medicine, MedicineFormData, ApiResponse } from "../types";
 
-export const API_BASE_URL = "https://backend-md6b.onrender.com";
+export const API_BASE_URL = "https://backend-e9ur.onrender.com";
 // Create axios instance
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
